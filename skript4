@@ -1,0 +1,10 @@
+#!bin/bash
+
+if ! test -d /var/web; then
+        mkdir /var/web
+        mkdir /var/web/html
+fi      
+
+if ! test -d ~/"$1"; then
+        mkdir /var/web/html/"$1" -m=drwxr-xr-x "$1"
+fi
