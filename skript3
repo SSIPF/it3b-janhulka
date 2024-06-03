@@ -1,0 +1,11 @@
+#!bin/bash
+
+echo "username:"
+read username
+
+if ! id -u "$username" &>/dev/null; then
+        useradd "$username"
+        passwd "$username"
+else   
+        echo "user already exists"
+fi
