@@ -9,7 +9,7 @@ if ! test -d /home/"$1"/web; then
         mkdir /home/"$1"/web
 
         touch /home/"$1"/web/index.html
-        printf "<!doctype html>\n<html>\n <head>\n  <title>%s</title>\n </head>" $1 >> /home/"$1"/web/index.html
+        printf "<!doctype html>\n<html>\n <head>\n  <title>%s</title>\n </head>\n" $1 >> /home/"$1"/web/index.html
         printf " <body>\n  <h1>%s's website</h1>\n  <p>This is an example web.</p>\n </body>\n</html>" $1 >> /home/"$1"/web/index.html
 
         ln -s /home/"$1"/web /var/web/html/"$1"
