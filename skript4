@@ -3,8 +3,13 @@
 if ! test -d /var/web; then
         mkdir /var/web
         mkdir /var/web/html
-fi      
+fi
 
-if ! test -d ~/"$1"; then
-        mkdir /var/web/html/"$1" -m=drwxr-xr-x "$1"
+if ! test -d /home/"$1"/web; then
+        mkdir /home/"$1"/web
+        ln -s /home/"$1"/web /var/web/html/"$1"
+
+        touch /home/"$1"/web/index.html
+        printf "<!doctype html>\n<html>\n <head>\n  <title>%s</title>\n </head>" $1 >> /home/"$1"/web/index.html
+        printf " <body>\n  <h1>%s's website</h1>\n  <p>This is an example web.</p>\n </body>\n</html>" $1 >> /home/"$1"/web/index.html
 fi
